@@ -1,0 +1,22 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data" : { "url": "https://raw.githubusercontent.com/PrinceAli6/Week9_homework_topo_json/main/stacked_line_chart.csv"},
+    "height" : 650,
+    "width": 700,
+    "title":{"text":"Suicides per 100k","color":"white","fontWeight":"lighter"},
+    "params": [ {"name": "sex_selector", 
+    "bind" : {"input": "select","options" : ["male","female"],"labels": ["Male","Female"],"name" : "Filter by binary gender: "},"value":"male"},
+    {"name": "country_selector","select":{"type":"point","fields": ["country"]},
+    "bind":"legend"} ],
+    "transform": [{"filter" : "datum.year <= 1420070400000 && datum.year >= 347155200000"},{"filter": "datum.sex == sex_selector"}],
+    "mark" : {"type": "line", "point":true},
+    "encoding": {"x" : {"field":"year","timeUnit": "year","title":"Year"},
+    "y": {"field" : "total","type": "quantitative"},
+    "color": {"field" : "country","title":"Country",
+    "scale":{"domain":["Australia","Lithuania","Republic of Korea","Finland"],"range":["#130dbd",
+    "#d62445","#f7fcfc","#259efa"]}
+    },
+    "opacity":{"condition":{"param": "country_selector","value" : 1},"value":0.2},
+    "tooltip":[{"field":"country","type": "nominal","title":"Country"}, {"field":"total","type": "quantitative","format":".2f","title" : "Number of suicides"},{"field" : "year","formatType": "year"}]},
+    "config": {"background":"#1d667c", "legend": {"titleColor" :"white","labelColor":"white","titleFontWeight":"lighter","labelFontWeight":"bolder"},"axis": {"titleColor":"white","labelColor":"white","tickCount": 8, "titleFontWeight":"lighter"}} 
+  }

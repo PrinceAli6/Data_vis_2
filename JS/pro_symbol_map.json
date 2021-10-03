@@ -1,0 +1,48 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "Number of suicides per 100,000 Men and Women",
+    "color":"white","fontWeight":"lighter"},
+    "width": 700,
+    "height":650,
+    "projection" : {"type": "mercator"},
+    "layer": [
+        {
+            "data" : { "url" : "https://raw.githubusercontent.com/PrinceAli6/Week9_homework_topo_json/main/world.topo.json.json",
+                        "format" : {"type":"topojson", "feature": "custom.geo"}
+                    },
+            "mark" : {"type" : "geoshape","fill": "white", "stroke": "lightgrey"}
+        },
+        {
+            "data" : {
+                "url" : "https://raw.githubusercontent.com/PrinceAli6/Week9_homework_topo_json/main/suicides.csv"
+            },
+            "transform": [{"filter": {"param": "sex_select"}}],
+            "params": [{"name": "sex_select","select":{"type": "point","fields": ["sex"]},"bind":"legend"} ],
+            "mark" : {"type" : "circle"},
+            "encoding":{
+                "longitude" : {"field" : "longitude", "type" : "quantitative"},
+                "latitude" : {"field" : "latitude", "type" : "quantitative"},
+                "size" : {
+                    "field" : "suicides_per_100k",
+                    "type" : "quantitative",
+                    "title":"Suicides per 100k"
+                },
+                "color" : {
+                    "field" : "sex",
+                    "type" : "nominal",
+                    "title" : "Sex",
+                    "scale": {"domain" : ["male","female"],
+                    "range": ["#FFA500","#000000"]}
+                },
+                "opacity":{"condition":{"param": "sex_select","value":1},"value" : 0.2},
+                "tooltip" : [ {"field":"country", "type": "nominal", "title":"Country"},
+                              {"field":"suicides_per_100k","type": "quantitative", "title":"suicides per 100k"},
+                              {"field":"sex","type": "nominal","title":"Sex"}
+                ]
+            }
+        }
+    ],
+    "config": {"background":"#1d667c",
+    "legend": {"titleColor":"white","labelColor":"white","labelFontWeight":400,"titleFontWeight":"lighter"}}
+
+}

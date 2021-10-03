@@ -1,0 +1,91 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {"text":"Standardised Happiness score against GDP",
+"color":"white"},
+  "width": 700,
+  "height":650,
+  "data": {
+    "url": "https://raw.githubusercontent.com/PrinceAli6/Week9_homework_topo_json/main/scatter_plot_data.csv"
+  },
+  "transform": [{"filter": "GDP_slider <= datum['Logged GDP per capita']"},
+  {"filter": "datum.rank <= Rank_slider"}],
+  "params": [
+    {
+      "name": "GDP_slider",
+      "value": 6.45,
+      "bind": {
+        "input": "range",
+        "min": 6.45,
+        "max": 11,
+        "step": 0.01,
+        "name": "GDP Per capita slider"
+      }
+    },
+    {"name" : "Rank_slider","value": 150,"bind" : {"input": "range",
+    "max": 150,
+    "min": 1,
+    "step": -1,
+    "name": "Rank and above "}
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Logged GDP per capita",
+      "type": "quantitative",
+      "scale": {"domain": [6, 12]},
+      "axis" : {"tickCount" : 6,"tickWidth" : 1,"titleColor":"white"}
+    },
+    "y": {"field": "Ladder score", "type": "quantitative","axis":{"titleColor":"white"}},
+    "tooltip": [
+      {"field": "Country", "type": "nominal"},
+      {"field": "Ladder score", "type": "quantitative", "format": ".2f"},
+      {"field": "rank","type": "ordinal"}
+    ]
+  },
+  "layer": [
+    { "selection": {
+      "regional_ind_selector": {"type":"multi", "fields" : ["Regional indicator"],"bind": "legend"}
+    },
+      "mark": "point",
+      "encoding": {"color": {"field": "Regional indicator", "type": "nominal",
+      "scale" : {
+        "domain": ["Central and Eastern Europe",
+        "East Asia",
+        "Latin America and Caribbean",
+        "Middle East and North Africa",
+        "North America and ANZ",
+        "South Asia",
+        "Southeast Asia",
+        "Sub-Saharan Africa",
+        "Western Europe",
+        "Commonwealth of Independent States"],
+        "range" : ["#a6cee3","#000000","#b2df8a","#33a02c","#fb9a99","#e31a1c","#fdbf6f","#ff7f00","#cab2d6","#FFFFFF"]
+      }},
+      "opacity" : {"condition" : {"selection" : "regional_ind_selector",
+      "value": 0.77},"value" : 0.2}
+    }},
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -5,
+        "dy" : -5,
+        "fontSize": 9,
+        "fontStyle": "Sans"
+      },
+      "encoding": {
+        "text": {"field": "Country", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Country'] == 'Finland' || datum.Country == 'Australia' || datum.Country == 'Afghanistan' ",
+            "value": 0.8
+          },
+          "value": 0
+        }
+      }
+    }
+  ],
+  "config": {"background":"#1d667c","axis": {"labelColor":"white"},"legend": {"titleColor":"white","labelColor":"white"}}
+}

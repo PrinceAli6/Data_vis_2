@@ -1,0 +1,5 @@
+New title,
+New colours (Distinguish males and females a bit better),
+New map projection (mercator is better here because we needed to perserve angles),
+Different strokes as well (the old ones took away from what we needed to see),
+Also improved the tool tip by specifying which gendder it is (i.e makes it easier for squished data points like in Europe).

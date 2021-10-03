@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Data visualisation 2</title>
+    
+    <!-- We are going to have to link the css file for styling purposes in the paragraph's as well as for adjusting various different 
+    components of our visualisation -->
+    <link rel="stylesheet" href="CSS/styling.css">
+    
+    <!-- Link the javascript to embed our visualisations -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    <script src="JS/java_script_embed.js"> </script>
+    
+    <!-- Link the fonts and pure-g that we're going to have to use for making things appear in a grid -->
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- Using Nanum Gothic for the title and using Open Sans for the text in my visualisation -->
+</head>
+
+<body>
+<div class = 'page'> 
+<div class = 'pure-g'>  
+<div class="pure-u-1-2"> <p>  <div class = "inner_title"> A look at global <span id ='s_text'>suicides</span> </div> </p> </div>
+<div class="pure-u-1-2"> <p id="space_1"> <div class = "title_ack"> A Visual narrative by <br><span id = "Name"> Muhammad Ali Aamir Raja </span></br> </div> </p> </div>
+</div>  
+
+<div class = "pure-g">
+    
+    <div class = 'pure-u-1-2'> 
+        <div id = 'prop_symbol_chart' class = 'vis_container'> 
+            <!-- This is where the proportional symbol chart will go -->
+        </div>
+    </div>
+    <div class="pure-u-2-5"> 
+        <div id = 'prop_symbol_chart_text'> 
+            <p class = 'para_heading'> Suicide around the world </p>
+        <p class = 'Main_text'>
+            Suicide is a prevelant issue within our society today. 
+            The proportional symbol plot on the left shows the number
+            of suicides per 100k men and women in each country 
+            (that the world health organisation had data on. Countries like China did not provide data hence are empty).
+            One trend that remains obvious is that east Asia and eastern Europe
+            tends to have higher rates per 100k men and women compared to the rest of the world. South Korea having the largest number of suicides in east Asia 
+            for males at 40 per 100k and Lithuania having the highest suicides for Males at 57 per 100k. For females we see that in
+            east Asia once again South Korea is leading, females commit suicide at a rate of 16 per 100k. In eastern europe once again
+            Lithuania leads in female suicides again at a rate of 11 per 100k. 
+            It also appears that overall, Men appear to disportionately be committing suicide at a higher rate than women.
+        </p>
+    </div>
+</div>
+</div>
+
+<div class="pure-g">
+    <div class='pure-u-1-2'>
+        <!-- Swap begin here -->
+        <div id="scat_plot_use" class = 'vis_container'> 
+        </div>
+    <!-- Swap end here -->
+    </div>
+    <div class="pure-u-2-5">
+        <!-- Swap begin here -->
+        <div id = 'para_2'> 
+            <p class = 'para_heading'> Suicide rates and wealth of a country </p>
+            <p class = 'Main_text'> 
+                Something that is very commonly connected to the suicide rate of countries is the 
+                happiness index of that country. A happiness index is a formal measure of the "happiness" within a country
+                as a function of several factors (politcal,social,environmental,etc) the largest factor is often thought to be how wealthy that country is.
+                Looking at the scatterplot on the left hand side it is obvious to see the linear trend that as countries are more and more richer (as measured by GDP) per capita
+                the happier that country tends to be.
+            </p>
+        </div>
+        <!-- Swap end here -->
+    </div>
+</div>
+
+<div class="pure-g">
+    <div class="pure-u-1-2">
+        <div id='line_chart_use' class="vis_container"> </div>
+    </div>
+    <div class="pure-u-2-5"> 
+        <div id="para_3"> 
+            <p class = 'para_heading'> Suicide rates over time </p>
+        <p class="Main_text"> With the suicides of each country it is often also necessary to understand the situation in the broader context.
+            One of these contexts is time. On the left is a stacked line chart from 1981 to 2015 that shows the suicide rate of men and women per 100k (filter at bottom).
+        The countries in particular that we're looking at are Australia as a baseline from where I live, Finland which is the happiest country in the world, Lithuania which had
+        the highest suicide rates in eastern Europe, and lastly South Korea which had the largest suicide rate in east Asia. What's really striking about this line chart is that for Males
+        the suicide rate per 100k has been decreasing steadily across all the countries except for Australia where it has remained stagnant and South Korea where it has actually
+        been increasing steadily.<br>
+        For Women this is largely the same except that for South Korea after 2009 we see a decreasing trend and for Australia alarmingly we see that
+        after 2010 we see that there is an increasing trend in suicide rates among women! </p>
+    </div>
+    </div>
+</div>
+
+</div>
+</body>
+</html>

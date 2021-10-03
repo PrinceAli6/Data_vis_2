@@ -1,0 +1,8 @@
+- Upload the data to github and then we can access it using the raw link. 
+- work in vega editor because we can have access to the data sources and also can make changes.
+- Once we get a visualisation we like we can copy paste it into microsoft visual studio and save that file
+
+also topojson files are stored as just json files even after map making them so it's no big deal if they're the same.
+
+week 7 tutorial is the javascript things
+and week 5 tutorial is the html and css things
