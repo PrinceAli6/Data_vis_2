@@ -88,5 +88,5 @@
       }
     }
   ],
-  "config": {"background":"#1d667c","axis": {"labelColor":"white","titleFontWeight":"lighter"},"legend": {"titleColor":"white","labelColor":"white","titleFontWeight":"lighter","labelFontWeight":"bolder"}}
+  "config": {"background":"#1d667c","axis": {"labelColor":"white","titleFontWeight":"lighter","grid": false},"legend": {"titleColor":"white","labelColor":"white","titleFontWeight":"lighter","labelFontWeight":"bolder"}}
 }
