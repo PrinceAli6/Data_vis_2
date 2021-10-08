@@ -47,7 +47,7 @@ body{
 
 .Main_text{
     font-family: 'Open Sans';
-    font-weight: 550;
+    font-weight: bolder;
 }
 
 
@@ -60,7 +60,7 @@ body{
 #prop_symbol_chart_text{
     text-align: left;
     padding-left: 3in;
-    padding-top: 0.7in;
+    padding-top: 0.6in;
 }
 
 
@@ -90,11 +90,11 @@ body{
 #para_3{
     text-align: left;
     padding-left: 3in;
-    padding-top: 1.5in;
+    padding-top: 1.25in;
 }
 
 .para_heading{
-    font-size: 0.65cm;
+    font-size: 0.75cm;
     font-family: 'Roboto';
     font-weight:bolder;
 }
